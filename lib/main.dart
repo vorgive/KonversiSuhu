@@ -1,22 +1,16 @@
 import 'package:flutter/material.dart';
-import 'login_page.dart';
+import 'package:provider/provider.dart';
+import 'package:aplikasikalkulator/login_page.dart'; // arah import ke halaman login
+import 'suhu_provider.dart';
 
 void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Konversi Suhu',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => SuhuProvider(),
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: MyLoginPage(), // diarahkan ke halaman login
       ),
-      home: MyLoginPage(),
-    );
-  }
+    ),
+  );
 }

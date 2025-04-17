@@ -40,6 +40,16 @@ class KonversiSuhuScreenState extends State<KonversiSuhuScreen> {
     });
   }
 
+  void resetSuhu() {
+    setState(() {
+      suhuController.clear();
+      celcius = 0;
+      fahrenheit = 0;
+      kelvin = 0;
+      reamur = 0;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -88,17 +98,33 @@ class KonversiSuhuScreenState extends State<KonversiSuhuScreen> {
               ),
             ),
             Padding(
-              padding: EdgeInsets.all(20),
-              child: ElevatedButton(
-                onPressed: konversiSuhu,
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.lightGreenAccent,
-                  padding: EdgeInsets.symmetric(vertical: 15, horizontal: 50),
-                ),
-                child: Text(
-                  'Konversikan',
-                  style: TextStyle(fontSize: 18, color: Colors.black),
-                ),
+              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  ElevatedButton(
+                    onPressed: konversiSuhu,
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.lightGreenAccent,
+                      padding: EdgeInsets.symmetric(vertical: 15, horizontal: 30),
+                    ),
+                    child: Text(
+                      'Konversikan',
+                      style: TextStyle(fontSize: 16, color: Colors.black),
+                    ),
+                  ),
+                  ElevatedButton(
+                    onPressed: resetSuhu,
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.redAccent,
+                      padding: EdgeInsets.symmetric(vertical: 15, horizontal: 30),
+                    ),
+                    child: Text(
+                      'Reset',
+                      style: TextStyle(fontSize: 16, color: Colors.white),
+                    ),
+                  ),
+                ],
               ),
             ),
           ],

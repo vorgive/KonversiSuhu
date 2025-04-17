@@ -1,5 +1,5 @@
 // ignore: depend_on_referenced_packages
-import 'package:aplikasikonversisuhu/home_page.dart';
+import 'package:aplikasikalkulator/home_page.dart';
 import 'package:flutter/material.dart';
 
 class MyLoginPage extends StatefulWidget {
@@ -22,7 +22,9 @@ class _MyLoginPageState extends State<MyLoginPage> {
         notif = " ";
       });
       Navigator.push(
-          context, MaterialPageRoute(builder: (context) => KonversiSuhuScreen()));
+        context,
+        MaterialPageRoute(builder: (context) => KonversiSuhuApp()),
+      );
     } else {
       setState(() {
         notif = "Email atau password salah";
@@ -48,10 +50,7 @@ class _MyLoginPageState extends State<MyLoginPage> {
                 children: [
                   const Text(
                     "Login",
-                    style: TextStyle(
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
-                    ),
+                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                   ),
                   const SizedBox(height: 20),
                   TextField(
@@ -78,13 +77,20 @@ class _MyLoginPageState extends State<MyLoginPage> {
                   ),
                   const SizedBox(height: 20),
                   ElevatedButton(
-                    onPressed: () => login(emailController.text, passwordController.text),
+                    onPressed:
+                        () => login(
+                          emailController.text,
+                          passwordController.text,
+                        ),
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.green,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10),
                       ),
-                      padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 40),
+                      padding: const EdgeInsets.symmetric(
+                        vertical: 12,
+                        horizontal: 40,
+                      ),
                     ),
                     child: const Text(
                       "Login",
